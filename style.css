@@ -1,0 +1,215 @@
+/* Troutdale Ward Picnic — shared styles */
+:root {
+  --primary: rgb(162, 74, 36);      /* rust / cedar */
+  --primary-dark: rgb(118, 52, 24);
+  --accent: rgb(15, 76, 129);       /* Columbia River blue */
+  --accent-light: rgb(58, 128, 190);
+  --cream: #f3e9da;
+  --cream-dim: #cdbba3;
+  --oak-base: #24150c;
+  --panel: rgba(20, 11, 6, 0.82);
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  color: var(--cream);
+  font-family: "Segoe UI", system-ui, -apple-system, Helvetica, Arial, sans-serif;
+  line-height: 1.65;
+  background-color: var(--oak-base);
+  /* Darkly stained oak: horizontal grain from stretched fractal noise */
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='900' height='600'><filter id='g' x='0' y='0' width='100%25' height='100%25'><feTurbulence type='fractalNoise' baseFrequency='0.004 0.28' numOctaves='5' seed='7'/><feColorMatrix values='0 0 0 0 0.04  0 0 0 0 0.02  0 0 0 0 0.01  1.9 0 0 0 -0.55'/></filter><filter id='k' x='0' y='0' width='100%25' height='100%25'><feTurbulence type='fractalNoise' baseFrequency='0.012 0.9' numOctaves='3' seed='3'/><feColorMatrix values='0 0 0 0 0.45  0 0 0 0 0.26  0 0 0 0 0.12  0.9 0 0 0 -0.32'/></filter><rect width='900' height='600' fill='%2330190d'/><rect width='900' height='600' filter='url(%23k)' opacity='0.55'/><rect width='900' height='600' filter='url(%23g)'/></svg>");
+  background-attachment: fixed;
+}
+
+a { color: var(--accent-light); }
+a:hover { color: #fff; }
+
+/* ---------- Title bar ---------- */
+.titlebar {
+  position: relative;
+  border-bottom: 6px solid var(--primary);
+  box-shadow: 0 6px 18px rgba(0,0,0,.6);
+  background: #000;
+}
+.titlebar .banner {
+  display: block;
+  width: 100%;
+  height: clamp(150px, 26vw, 360px);
+  object-fit: cover;
+  object-position: 85% 45%;   /* keep the picnic sign in frame when cropped on narrow screens */
+}
+.titlebar .exit {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  width: clamp(64px, 11vw, 140px);
+  border-radius: 8px;
+  border: 2px solid #fff;
+  box-shadow: 0 3px 10px rgba(0,0,0,.7);
+}
+.titlebar .exit img { display: block; width: 100%; border-radius: 6px; }
+
+/* ---------- Options menu ---------- */
+.menu {
+  background: linear-gradient(var(--primary), var(--primary-dark));
+  border-bottom: 3px solid var(--accent);
+  box-shadow: 0 4px 12px rgba(0,0,0,.5);
+}
+.menu ul {
+  list-style: none;
+  margin: 0 auto;
+  padding: 0;
+  max-width: 1000px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.menu a {
+  display: block;
+  padding: 14px 28px;
+  color: var(--cream);
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: .14em;
+  font-weight: 700;
+  font-size: .95rem;
+  border-bottom: 4px solid transparent;
+}
+.menu a:hover { background: rgba(0,0,0,.25); color: #fff; }
+.menu a[aria-current="page"] { border-bottom-color: var(--accent-light); background: rgba(0,0,0,.25); }
+
+/* ---------- Content ---------- */
+main { max-width: 1000px; margin: 0 auto; padding: 32px 20px 56px; }
+
+.panel {
+  background: var(--panel);
+  border: 1px solid rgba(162, 74, 36, .6);
+  border-left: 6px solid var(--primary);
+  border-radius: 6px;
+  padding: 24px 28px;
+  margin-bottom: 28px;
+  box-shadow: 0 6px 20px rgba(0,0,0,.45);
+}
+
+h1, h2, h3 { font-family: Georgia, "Times New Roman", serif; line-height: 1.2; }
+h1 { font-size: clamp(1.8rem, 4vw, 2.6rem); margin: 0 0 .4em; color: #fff; }
+h2 { color: #f0b08d; margin-top: 0; }
+.kicker {
+  text-transform: uppercase; letter-spacing: .2em; font-size: .8rem;
+  color: var(--accent-light); font-weight: 700; margin-bottom: .5em;
+}
+
+.btn {
+  display: inline-block;
+  background: var(--primary);
+  color: #fff;
+  padding: 12px 26px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 700;
+  letter-spacing: .06em;
+  border: 2px solid transparent;
+  cursor: pointer;
+  font-size: 1rem;
+}
+.btn:hover { background: var(--accent); color: #fff; }
+.btn.alt { background: var(--accent); }
+.btn.alt:hover { background: var(--primary); }
+
+/* Latest episode card on home */
+.feature { display: flex; gap: 24px; align-items: center; flex-wrap: wrap; }
+.feature .cover {
+  width: 160px; height: 160px; border-radius: 10px; flex: none;
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  display: grid; place-items: center; font-size: 3.2rem;
+  border: 3px solid var(--cream);
+}
+.feature .text { flex: 1; min-width: 240px; }
+
+/* Listen-on buttons */
+.platforms { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
+.platforms a {
+  padding: 8px 16px; border: 1px solid var(--cream-dim); border-radius: 999px;
+  color: var(--cream); text-decoration: none; font-size: .9rem;
+}
+.platforms a:hover { background: var(--accent); border-color: var(--accent); }
+
+/* Episode list */
+.episode {
+  display: grid;
+  grid-template-columns: 64px 1fr auto;
+  gap: 18px;
+  align-items: center;
+  padding: 18px 0;
+  border-top: 1px solid rgba(205,187,163,.25);
+}
+.episode:first-of-type { border-top: 0; }
+.episode .num {
+  font-family: Georgia, serif; font-size: 2rem; color: var(--primary);
+  background: var(--cream); border-radius: 8px; text-align: center; padding: 6px 0;
+  font-weight: 700;
+}
+.episode h3 { margin: 0 0 .2em; font-size: 1.2rem; }
+.episode h3 a { color: #fff; text-decoration: none; }
+.episode h3 a:hover { color: #f0b08d; }
+.episode p { margin: 0; color: var(--cream-dim); font-size: .95rem; }
+.episode .meta { font-size: .8rem; color: var(--accent-light); letter-spacing: .08em; text-transform: uppercase; }
+.episode .play { white-space: nowrap; }
+
+/* Form */
+form label { display: block; margin: 14px 0 4px; font-weight: 600; }
+form input, form textarea {
+  width: 100%; padding: 10px 12px; border-radius: 6px;
+  border: 2px solid var(--primary-dark); background: #1a0f08; color: var(--cream);
+  font: inherit;
+}
+form input:focus, form textarea:focus { outline: none; border-color: var(--accent-light); }
+form .btn { margin-top: 18px; }
+
+/* ---------- Footer ---------- */
+footer {
+  background: rgba(10, 5, 2, .92);
+  border-top: 4px solid var(--accent);
+  padding: 26px 20px;
+  text-align: center;
+  color: var(--cream-dim);
+  font-size: .9rem;
+}
+footer .social { display: flex; justify-content: center; gap: 22px; flex-wrap: wrap; margin-bottom: 10px; }
+footer .social a { color: var(--cream); text-decoration: none; font-weight: 600; }
+footer .social a:hover { color: var(--accent-light); }
+
+@media (max-width: 600px) {
+  .menu a { padding: 12px 16px; font-size: .85rem; }
+  .episode { grid-template-columns: 48px 1fr; }
+  .episode .play { grid-column: 2; }
+  .panel { padding: 18px; }
+}
+
+/* Image title with white glow (Feedback page) */
+.title-img { margin: 0 0 .2em; text-align: center; }
+.title-img img {
+  display: inline-block;
+  width: min(100%, 520px);
+  height: auto;
+  margin: 20px 0 28px;   /* clear the label above; leave room below for the glow */
+  filter:
+    drop-shadow(0 0 1px #fff)
+    drop-shadow(0 0 2px #fff)
+    drop-shadow(0 0 5px #fff)
+    drop-shadow(0 0 10px rgba(255,255,255,.9))
+    drop-shadow(0 0 20px rgba(255,255,255,.6));
+}
+
+/* Smaller heading image (Feedback page) */
+.title-img.compact img { width: min(100%, 340px); margin: 8px 0 18px; }
+
+/* Keep the designed palette when the browser forces system colors
+   (Windows contrast themes / Edge forced-colors mode). */
+@media (forced-colors: active) {
+  *, *::before, *::after { forced-color-adjust: none !important; }
+}

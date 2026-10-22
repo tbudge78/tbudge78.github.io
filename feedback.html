@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Feedback — Troutdale Ward Picnic</title>
+<link rel="stylesheet" href="style.css?v=6">
+</head>
+<body>
+
+<header class="titlebar">
+  <img class="banner" src="TitleBar2.png" alt="Welcome to the Troutdale Ward Picnic">
+  <a class="exit" href="index.html" aria-label="Troutdale Ward Picnic home"><img src="Exit17.jpg" alt="Exit 17"></a>
+</header>
+
+<nav class="menu" aria-label="Main">
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About us</a></li>
+    <li><a href="episodes.html">Episodes</a></li>
+    <li><a href="feedback.html" aria-current="page">Feedback</a></li>
+  </ul>
+</nav>
+
+<main>
+  <section class="panel">
+    <div class="kicker">Feedback</div>
+    <h1 class="title-img compact"><img src="web/Letshearitbrethren.png" width="1000" alt="Let's Hear It Brethren! Tell us what you think"></h1>
+    <p>
+      Now, don't get us wrong, we want to hear from everyone. This phrase is what we heard as young men every week from Brother Ackerson when he lead us in singing the hymn, "The Iron Rod." So, forgive us if it seems exclusionary. It just means to enthusiastically participate!
+      Got a memory of the Troutdale Ward, a story idea, or a correction (we
+      probably got a detail wrong)? We'd love to hear it.
+    </p>
+
+    <!-- Opens the visitor's email app addressed to twpicnic@gmail.com. No server needed. -->
+    <form id="fb">
+      <label for="name">Your name</label>
+      <input id="name" name="name" autocomplete="name">
+      <label for="msg">Message</label>
+      <textarea id="msg" name="msg" rows="7" required></textarea>
+      <button class="btn" type="submit">Send via email</button>
+    </form>
+    <p style="margin-top:18px">
+      Or write directly to <a href="mailto:twpicnic@gmail.com">twpicnic@gmail.com</a>,
+      or message us on Instagram
+      <a href="https://www.instagram.com/twpicnic" target="_blank" rel="noopener">@twpicnic</a>.
+    </p>
+  </section>
+</main>
+
+<footer>
+  <div class="social">
+    <a href="https://www.instagram.com/twpicnic" target="_blank" rel="noopener">Instagram @twpicnic</a>
+    <a href="mailto:twpicnic@gmail.com">twpicnic@gmail.com</a>
+  </div>
+  <div>&copy; <span id="yr">2026</span> Troutdale Ward Picnic &middot; troutdalewardpicnic.com</div>
+</footer>
+<script>
+document.getElementById("yr").textContent = new Date().getFullYear();
+document.getElementById("fb").addEventListener("submit", function (e) {
+  e.preventDefault();
+  var n = document.getElementById("name").value.trim();
+  var m = document.getElementById("msg").value.trim();
+  var body = (n ? "From: " + n + "\n\n" : "") + m;
+  location.href = "mailto:twpicnic@gmail.com?subject=" +
+    encodeURIComponent("Troutdale Ward Picnic feedback") +
+    "&body=" + encodeURIComponent(body);
+});
+</script>
+</body>
+</html>

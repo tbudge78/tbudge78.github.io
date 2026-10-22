@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Episodes — Troutdale Ward Picnic</title>
+<link rel="stylesheet" href="style.css?v=6">
+</head>
+<body>
+
+<header class="titlebar">
+  <img class="banner" src="TitleBar2.png" alt="Welcome to the Troutdale Ward Picnic">
+  <a class="exit" href="index.html" aria-label="Troutdale Ward Picnic home"><img src="Exit17.jpg" alt="Exit 17"></a>
+</header>
+
+<nav class="menu" aria-label="Main">
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About us</a></li>
+    <li><a href="episodes.html" aria-current="page">Episodes</a></li>
+    <li><a href="feedback.html">Feedback</a></li>
+  </ul>
+</nav>
+
+<main>
+  <section class="panel">
+    <div class="kicker">Episodes</div>
+    <h1 class="title-img"><img src="web/Episodes.png" width="1000" alt="Episodes"></h1>
+    <p>
+      All links below are placeholders (<code>href="#"</code>). When an episode is
+      published, replace the <code>#</code> with its real URL.
+    </p>
+    <div class="platforms" aria-label="Subscribe">
+      <a href="#">Apple Podcasts</a>
+      <a href="#">Spotify</a>
+      <a href="#">YouTube</a>
+      <a href="#">RSS feed</a>
+    </div>
+  </section>
+
+  <section class="panel" id="episode-list">
+    <!-- Copy one <article> block per episode. -->
+    <article class="episode">
+      <div class="num">1</div>
+      <div>
+        <div class="meta">Season 1 &middot; Date TBD &middot; 00:00</div>
+        <h3><a href="#">Episode 1 &mdash; Title goes here</a></h3>
+        <p>Short description of the episode.</p>
+      </div>
+      <a class="btn play" href="#">&#9654; Listen</a>
+    </article>
+
+    <article class="episode">
+      <div class="num">2</div>
+      <div>
+        <div class="meta">Season 1 &middot; Date TBD &middot; 00:00</div>
+        <h3><a href="#">Episode 2 &mdash; Title goes here</a></h3>
+        <p>Short description of the episode.</p>
+      </div>
+      <a class="btn play" href="#">&#9654; Listen</a>
+    </article>
+
+    <article class="episode">
+      <div class="num">3</div>
+      <div>
+        <div class="meta">Season 1 &middot; Date TBD &middot; 00:00</div>
+        <h3><a href="#">Episode 3 &mdash; Title goes here</a></h3>
+        <p>Short description of the episode.</p>
+      </div>
+      <a class="btn play" href="#">&#9654; Listen</a>
+    </article>
+
+    <article class="episode">
+      <div class="num">4</div>
+      <div>
+        <div class="meta">Season 1 &middot; Date TBD &middot; 00:00</div>
+        <h3><a href="#">Episode 4 &mdash; Title goes here</a></h3>
+        <p>Short description of the episode.</p>
+      </div>
+      <a class="btn play" href="#">&#9654; Listen</a>
+    </article>
+  </section>
+</main>
+
+<footer>
+  <div class="social">
+    <a href="https://www.instagram.com/twpicnic" target="_blank" rel="noopener">Instagram @twpicnic</a>
+    <a href="mailto:twpicnic@gmail.com">twpicnic@gmail.com</a>
+  </div>
+  <div>&copy; <span id="yr">2026</span> Troutdale Ward Picnic &middot; troutdalewardpicnic.com</div>
+</footer>
+<script>document.getElementById("yr").textContent = new Date().getFullYear();</script>
+</body>
+</html>
