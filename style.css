@@ -208,6 +208,32 @@ footer .social a:hover { color: var(--accent-light); }
 /* Smaller heading image (Feedback page) */
 .title-img.compact img { width: min(100%, 340px); margin: 8px 0 18px; }
 
+/* Styling for the picture frame */
+        .framed-figure {
+            border: 8px solid #ffffff;       /* Thick white border like a picture frame */
+            padding: 12px;                   /* Space between the image and the frame */
+            background-color: #f0f0f0;       /* Matting background color inside the frame */
+            display: inline-block;           /* Shrink-wraps the container tightly around the image */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Soft shadow for a 3D depth effect */
+            border-radius: 4px;              /* Slight rounding on the outer corners */
+        }
+
+        /* Ensuring the image stays responsive inside the frame */
+        .framed-figure img {
+            display: block;
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Styling for the caption underneath */
+        .framed-figure figcaption {
+            text-align: center;
+            margin-top: 10px;
+            font-family: sans-serif;
+            font-size: 14px;
+            color: #333333;
+        }
+
 /* Keep the designed palette when the browser forces system colors
    (Windows contrast themes / Edge forced-colors mode). */
 @media (forced-colors: active) {
